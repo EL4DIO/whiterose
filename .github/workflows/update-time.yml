@@ -2,7 +2,12 @@ name: Update File with Current Time
 
 on:
   schedule:
-    - cron: '0 0,8,16 * * *'  # This cron expression will trigger the workflow 3 times a day at 00:00, 08:00, and 16:00 UTC
+    - cron: '32 18 * * *'   # 13:45 UTC
+    - cron: '33 12 * * *'   # 12:33 UTC
+    - cron: '45 10 * * *'   # 10:45 UTC
+    - cron: '10 9 * * *'    # 09:10 UTC
+    - cron: '50 22 * * *'   # 22:50 UTC
+    
   workflow_dispatch:  # This allows the workflow to be triggered manually from GitHub UI if needed.
 
 jobs:
@@ -25,5 +30,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add time.txt
-          git commit -m "Update current time to $current_time"
+          git commit -m "Update"
           git push
